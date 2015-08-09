@@ -1,62 +1,179 @@
 <!DOCTYPE html>
-<html data-ng-app="samples">
+<html data-ng-app="skcApp">
 <head>
-    <title>AngularJS Demos</title>
-
+    <title>Southern Knights Cruisers</title>
+    <meta name="description" content="The Southern Knights Cruisers sponsors a cruise-in at Hardee's. Cruise in for Good Food, Good Music, Good Friends, Beautiful Classic Cars, Bikes & More." />
+    <link rel="canonical" href="http://www.southerknightscruisers.com/index.html" />
+    <link rel="shortcut icon" href="content/images/favicon.ico">
+    <link href="Content/css/templatemo_style.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="Content/css/styles.css" rel="stylesheet" />
+    <script src="app/app.js"></script>
+    <script src="app/controllers/controllers.js"></script>
+    <script src="Scripts/angular.js"></script>
+    <script src="Scripts/angular-route.js"></script>
+    <script src="Scripts/jquery.min.js"></script>
 </head>
-<body data-ng-controller="samplesController">
-    <h2>
-        <img src="Content/images/angularShield.png" />ngularJS Demos</h2>
-    <div class="row">
-        <div class="span4 section">
-            <h5>Demos:</h5>
-            <ol>
-                <li data-ng-repeat="page in pages">
-                    <a href="{{href}}" data-ng-click="loadPage(page)">{{ page.title }}</a>
-                </li>
-            </ol>
+
+<body data-ng-controller="MainController">
+
+    <div id="templatemo_header">
+
+        <div id="header_left">
+            <div id="site_title">
+                <a href="index.html">Southern Knights Cruisers, Inc.<span>Colonial Heights, Virginia</span></a>
+            </div> <!-- end of site_title -->
         </div>
-        <div class="span8">
-            <ng-include src="template"></ng-include>
-            <!-- <div id="sampleContent"></div> -->
-            <br />
-            <div class="container">
-                <h4>Code:</h4>
-                <textarea></textarea>
-            </div>
+
+        <div class="header_right1">
         </div>
+
+        <div class="header_right">
+            <div id="templatemo_menu">
+                <ul>
+                    <ul>
+                        <li data-ng-class="{'active':getClass('/home')}"><a href="#/home">Home</a></li>
+                        <li data-ng-class="{'active':getClass('/about')}"><a href="#/about">About</a></li>
+                        <li data-ng-class="{'active':getClass('/events')}"><a href="#/events">Events</a></li>
+                        <li data-ng-class="{'active':getClass('/gallery')}"><a href="#/gallery">Gallery</a></li>
+                        <li data-ng-class="{'active':getClass('/sponsor')}"><a href="#/sponsor">Sponsors</a></li>
+                        <li data-ng-class="{'active':getClass('/contact')}"><a href="#/contact">Contact Us</a></li>
+                        <li class="last" data-ng-class="{'active':getClass('/veterans-show')}"><a href="#/veterans-show">Car Show</a></li>
+                    </ul>
+                </ul>
+            </div> <!-- end of templatemo_menu -->
+        </div>
+
+        <div class="cleaner"></div>
+
+    </div>
+    <div id="templatemo_featured_content_wrapper">
+        <!-- hardees background -->
+        <div class="cleaner"></div>
     </div>
 
-    <script src="Scripts/jquery.min.js"></script>
-    <script src="Scripts/angular.js"></script>
-    <script src="Scripts/bootstrap.min.js"></script>
+    <div id="templatemo_content_wrapper">
+        <div id="content_main" data-ng-view=""><!--This is where dynamic data loads --></div>
+        <div class="clear">&nbsp;</div>
+        <div id="templatemo_footer_wrapper"> </div>
+    </div>
+
+
+    <!--I still need to move the below code out of index.html, but leaving that until it is all working 100%.
+    That can be the final pre-prod deployment task -->
 
     <script>
-        var urlBase = 'DemoPartials/';
-        var samplesModule = angular.module('samples', []);
+        var urlBase = 'Views/';
+        var titleBase = 'Southern Knights Cruisers | ';
+        var app = angular.module('skcApp', ['ngRoute']);
 
-        samplesModule.config(function($controllerProvider, $provide) {
+        app.config(function($controllerProvider, $provide) {
             //Used to handle loading controllers dynamically
-            samplesModule.controller = $controllerProvider.register;
-            samplesModule.factory = $provide.factory;
+            app.controller = $controllerProvider.register;
+            app.factory = $provide.factory;
         });
 
-        samplesModule.controller('samplesController', function ($scope, $templateCache, $http, $location) {
+        app.config(function ($routeProvider) {
+            $routeProvider
+                    .when('/about',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'about.html'
+                    })
+                    .when('/contact',        {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'contact.html'
+                    })
+                    .when('/events',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'events.html'
+                    })
+                    .when('/gallery',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'gallery.html'
+                    })
+                    .when('/',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'home.html'
+                    })
+                    .when('/home',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'home.html'
+                    })
+                    .when('/mainContent',
+                    {
+                        controller: 'MainContentController',
+                        templateUrl: urlBase + 'mainContent.html'
+                    })
+                    .when('/sponsor',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'sponsor.html'
+                    })
+                    .when('/veterans-show',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'veterans-show.html'
+                    })
+                    .when('/member-cars',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'member-cars.html'
+                    })
+                    .when('/2015-cruise-in',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + '2015-cruise-in.html'
+                    })
+                    .when('/2014-cruise-in',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + '2014-cruise-in.html'
+                    })
+                    .when('/2013-cruise-in',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + '2013-cruise-in.html'
+                    })
+                    .when('/mcguire-hospital14',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'mcguire-hospital14.html'
+                    })
+                    .when('/mcguire-hospital13',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + 'mcguire-hospital13.html'
+                    })
+                    .when('/2014-veterans',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + '2014-veterans.html'
+                    })
+                    .when('/2013-veterans',
+                    {
+                        controller: 'MainController',
+                        templateUrl: urlBase + '2013-veterans.html'
+                    })
+                    .otherwise({ redirectTo: '/index.html' });
+        });
+
+        //The titles are not adding on each respective page, I need to investigate further
+        app.controller('MainController', function ($scope, $templateCache, $http, $location) {
             $scope.template = '';
             $scope.html = '';
             $scope.pages = [
-                { title: 'Data binding basics', url: urlBase + '1_Data_binding_basics.html' },
-                { title: 'Looping with ng-repeat', url: urlBase + '2_Looping_with_ng-repeat.html' },
-                { title: 'Adding a Simple Controller', url: urlBase + '3_Adding_a_Simple_Controller.html' },
-                { title: 'Using ng-model and ng-click Directives', url: urlBase + '4_Using_ng-model_and_ng-click_Directives.html' },
-                { title: 'Filtering and Sorting Data', url: urlBase + '5_Filtering_and_Sorting_Data.html' },
-                { title: 'Adding a Module and Controller', url: urlBase + '6_Adding_a_Module_and_Controller.html' },
-                //{ title: 'Adding Module Configuration and Routing', url: urlBase + '7_Adding_Module_Configuration_and_Routing.html' },
-                { title: 'Module, Controller and Factory', url: urlBase + '8_Module-Controller-Factory.html' },
-                { title: 'Customer Management App', url: 'CustomerManagementApp.html', href: 'CustomerManagementApp.html' },
+                { title: titleBase + 'About Us', url: urlBase + 'about.html' },
+                { title: titleBase + 'Contact Us', url: urlBase + 'contact.html' },
+                { title: titleBase + 'Events', url: urlBase + 'events.html' },
+                { title: titleBase + 'Image Gallery', url: urlBase + 'gallery.html' },
+                { title: titleBase + 'Home', url: urlBase + 'home.html' },
+                { title: titleBase + 'Sponsors', url: urlBase + 'sponsor.html' },
             ];
 
             $scope.loadPage = function (page) {
@@ -74,6 +191,8 @@
                   });
             }
         });
+
+
     </script>
 </body>
 </html>
