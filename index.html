@@ -4,7 +4,7 @@
     <title>Southern Knights Cruisers</title>
     <meta name="description" content="The Southern Knights Cruisers sponsors a cruise-in at Hardee's. Cruise in for Good Food, Good Music, Good Friends, Beautiful Classic Cars, Bikes & More." />
     <link rel="canonical" href="http://www.southerknightscruisers.com/index.html" />
-    <link rel="shortcut icon" href="content/images/favicon.ico">
+    <link rel="shortcut icon" href="Content/images/favicon.ico">
     <link href="Content/css/templatemo_style.css" rel="stylesheet" type="text/css" />
     <link href="Content/css/bootstrap.min.css" rel="stylesheet" />
     <link href="Content/css/bootstrap-responsive.min.css" rel="stylesheet" />
@@ -14,6 +14,7 @@
     <script src="Scripts/angular.js"></script>
     <script src="Scripts/angular-route.js"></script>
     <script src="Scripts/jquery.min.js"></script>
+    <script src="Content/images/members-cars_files/vlb_engine/visuallightbox.js"></script>
 </head>
 
 <body data-ng-controller="MainController">
@@ -22,7 +23,7 @@
 
         <div id="header_left">
             <div id="site_title">
-                <a href="index.html">Southern Knights Cruisers, Inc.<span>Colonial Heights, Virginia</span></a>
+                <a href="index.html#/home">Southern Knights Cruisers, Inc.<span>Colonial Heights, Virginia</span></a>
             </div> <!-- end of site_title -->
         </div>
 
@@ -32,7 +33,6 @@
         <div class="header_right">
             <div id="templatemo_menu">
                 <ul>
-                    <ul>
                         <li data-ng-class="{'active':getClass('/home')}"><a href="#/home">Home</a></li>
                         <li data-ng-class="{'active':getClass('/about')}"><a href="#/about">About</a></li>
                         <li data-ng-class="{'active':getClass('/events')}"><a href="#/events">Events</a></li>
@@ -40,7 +40,6 @@
                         <li data-ng-class="{'active':getClass('/sponsor')}"><a href="#/sponsor">Sponsors</a></li>
                         <li data-ng-class="{'active':getClass('/contact')}"><a href="#/contact">Contact Us</a></li>
                         <li class="last" data-ng-class="{'active':getClass('/veterans-show')}"><a href="#/veterans-show">Car Show</a></li>
-                    </ul>
                 </ul>
             </div> <!-- end of templatemo_menu -->
         </div>
@@ -53,10 +52,92 @@
         <div class="cleaner"></div>
     </div>
 
-    <div id="templatemo_content_wrapper">
-        <div id="content_main" data-ng-view=""><!--This is where dynamic data loads --></div>
-        <div class="clear">&nbsp;</div>
-        <div id="templatemo_footer_wrapper"> </div>
+    <div id="templatemo_content_wrapper_main" data-ng-view=""><!--This is where dynamic page data loads for the SPA --></div>
+
+    <div id="templatemo_footer_wrapper">
+        <div id="templatemo_footer">
+            <div class="col_w150">
+
+
+                <h4><U>2015 Officers</U><br />
+                </h4>
+                <ul>
+                    <li>
+                        <ul>
+                            <li><strong>Ricky Williams, President
+                            </strong></li>
+                            <li><strong>John Ronkartz, Vice-President<br />
+                            </strong></li>
+                            <li><strong>Sharon Williams, Secretary<br />
+                            </strong></li>
+                            <li><strong>Bea Brown, Treasurer<br />
+                            </strong></li>
+                            <li><strong>Bert Brown, Sgt. at Arms<br />
+                                <br />
+                            </strong></li>
+                        </ul>
+                    </li>
+                    <h4><U>2015 Directors</U> <br />
+                    </h4>
+                    <ul>
+                        <li><strong>Eddie Cole<br /> </strong></li>
+                        <li><strong>Larry Clarke</strong></li>
+                        <li><strong>Ken Farmer<br /></strong></li>
+                        <li><strong>John Newton<br /></strong></li>
+                        <li><strong>John Ronkartz</strong></li>
+                        <li></li>
+                    </ul>
+                </ul>
+
+
+            </div>
+
+            <div class="col_w410">
+
+
+                <p><strong>We pray for our Brave Men and Women in the Armed Forces that are sacrificing all around the world to protect us, as well as their families that support them. May we always remember and respect those Americans that have given the ultimate sacrifice to ensure our freedom.</strong></p>
+                <p><strong><br />
+                    <br />
+                    <br />
+                    <center>   &quot;WE   SUPPORT OUR TROOPS AND ARE PROUD TO BE AMERICANS&quot;<br />
+                        <br />
+                        <br />
+                </strong> </p>
+                <p><strong><img src="images/FlagsBar.jpg" width="270" height="26" /></center><br />
+                </strong></p>
+
+
+
+            </div>
+
+            <div class="col_w270 col_w270_last">
+
+                <h4><U>Sponsors:</U></h4>
+
+                <a href="http://www.surfcitygarage.com/"  target="_new" style=" font-size: 17px">Surf City Garage</a><br />
+                <a href="" style=" font-size: 17px">Elite Contracting</a><br />
+                <a href="http://www.hardees.com/"  target="_new" style=" font-size: 17px">Hardees</a><br />
+                <a href="http://www.strosniderchevrolet.com/"  target="_new" style=" font-size: 17px">Strosnider Chevrolet</a><br />
+                <a href="http://storelocator.pepboys.com/pepboys/stores/petersburg/pep_boys_petersburg/00091"  target="_new" style=" font-size: 17px">Pep Boys Speed Shop</a><br />
+                <a href="http://www.vmpdrag.com/"  target="_new" style=" font-size: 17px">Virginia Motorsport Park</a><br />
+                <a href="http://paradiseroadspeedandcustom.1freecart.com/"  target="_new" style=" font-size: 17px">Paradise Road Speed &amp; Custom</a><br />
+                <a href="https://www.facebook.com/pages/Masis-Musclecar-Garage/112770362140990"  target="_new" style=" font-size: 17px">Masi's Musclecar Garage</a><br />
+
+                <p>We sincerely want to thank all of our Corporate Sponsors that have made it possible for the Southern   Knights Cruisers to carry out their mission each year.</p>
+
+            </div>
+
+            <div class="cleaner"></div>
+        </div>
+
+
+        <div id="templatemo_copyright_wrapper">
+            <div id="templatemo_copyright">
+
+                © 2015 <a href="index.php">Southern Knights Cruisers, Inc.</a> | <a href="mailto:marpau0755@gmail.com">Contact Webmaster</a>
+            </div>
+        </div>
+
     </div>
 
 
@@ -160,7 +241,7 @@
                         controller: 'MainController',
                         templateUrl: urlBase + '2013-veterans.html'
                     })
-                    .otherwise({ redirectTo: '/index.html' });
+                    .otherwise({ redirectTo: 'home.html' });
         });
 
         //The titles are not adding on each respective page, I need to investigate further

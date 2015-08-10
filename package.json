@@ -4,16 +4,16 @@
   "description": "The Southern Knights Cruisers is a Non-profit Club under IRS Section 501 (c) 7 formed in 2004 by local car hobbyists who enjoy showing and driving their old cars and who are dedicated to raising money to help veterans through the enjoyment of the hobby.",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.11.2"
+  "express": "^4.11.2"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+  "test": "echo \"Error: no test specified\" && exit 1",
+  "start": "node server.js"
   },
   "keywords": [
-    "Angular",
-    "JavaScript"
+  "Angular",
+  "JavaScript"
   ],
-  "author": "Mark Paul & Shaun Dolan",
+  "author": "Mark Paul",
   "license": "MIT"
 }
